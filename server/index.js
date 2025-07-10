@@ -17,13 +17,22 @@ app.get('/api/profile', async (req, res) => {
 
         const mocked = {
             id: data.id,
+            role: data.role,
             name: data.name || 'Ирина Котова',
+            nickname: data.nickname || unknownUser,
             avatar: data.avatar_url || '/default-avatar.jpg',
-            city: data.city?.name || 'Москва',
             age: data.age,
+            city: data.city?.name || 'Москва',
+            is_private: data.is_private,
             telegram: data.telegram,
             about: data.about,
-            points: data.points
+            points: data.points,
+            calling_limit: data.calling_limit,
+            going_limit: data.going_limit,
+            account_status: data.account_status,
+            last_login_at: data.last_login_at,
+            created_at: data.created_at,
+            updated_at: data.updated_at
         }
 
         res.json(mocked)

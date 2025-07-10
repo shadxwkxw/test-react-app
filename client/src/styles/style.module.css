@@ -1,0 +1,253 @@
+.container {
+  max-width: 390px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  background: #EEEEEE;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.menuText {
+  font-size: 16px;
+  color: #A7A7A7;
+}
+
+.menuWithText {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.metaInfo {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  font-size: 17px;
+  color: #434343;
+  font-weight: 400;
+}
+
+.metaInfo2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  gap: 20px;
+}
+
+.metaBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.metaBlock:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -10%;
+  height: 100%;
+  width: 1px;
+  background-color: #434343;
+}
+
+.metaValue {
+  font-size: 24px;
+  font-weight: 600;
+  color: #434343;
+}
+
+.metaLabel {
+  font-size: 24px;
+  color: #434343;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 5px;
+}
+
+.cityBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  font-size: 22px;
+  border-radius: 25px;
+  padding: 16px 8px;
+  width: 236px;
+}
+
+.settingsBtn {
+  border-radius: 25px;
+  border: 3px solid #A7A7A7;
+  color: #A7A7A7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  padding: 16px 8px;
+  margin-left: 15px;
+}
+
+.settingsText {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.settingsImg {
+  width: 30px;
+  height: 30px;
+}
+
+.menus {
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  color: #434343;
+  border-radius: 25px;
+  padding: 16px 8px;
+}
+
+.zovs, .go, .dotText, .numberArrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.zovs {
+  margin-bottom: 10px;
+}
+
+.go {
+  margin-top: 10px;
+}
+
+.zovs, .go {
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+hr {
+  color: rgb(0, 0, 0, 0.2);
+}
+
+.text {
+  font-size: 20px;
+}
+
+.dotText {
+  align-items: center;
+  gap: 20px;
+  font-weight: 500;
+}
+
+.numberArrow {
+  gap: 20px;
+}
+
+.number {
+  width: 28px;
+  height: 28px;
+  background-color: #D0D0D0;
+  border-radius: 50%;
+  padding: 2px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.greenDot {
+  width: 13px;
+  height: 13px;
+  background-color: #00CF00;
+  border-radius: 50%;
+}
+
+.orangeDot {
+  width: 13px;
+  height: 13px;
+  background-color: #FFA100;
+  border-radius: 50%;
+}
+
+.create_my {
+  margin-top: 20px;
+  border-radius: 25px;
+  border: 4px solid #9500FF;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.createGame {
+  display: flex;
+  justify-content: center;
+  padding: 16px 8px;
+  border-radius: 20px 20px 0 0;
+  background-color: #9500FF;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.myGames {
+  display: flex;
+  justify-content: center;
+  padding: 16px 8px;
+  border-radius: 0 0 20px 20px;
+  background-color: #FFFFFF;
+  color: #9500FF;
+  cursor: pointer;
+}
+
+.name {
+  font-size: 22px;
+  margin: 4px 0;
+}
+
+.city {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 4px;
+}

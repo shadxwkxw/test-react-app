@@ -1,36 +1,156 @@
 import React, { useState, useEffect } from "react";
+import Profile from './Img/avatar.svg';
+import Arrow2 from './Img/arrow2.svg';
+import Arrow from './Img/arrow.svg';
+import Share from './Img/share.svg';
+import Eye2 from './Img/eye2.svg';
+import Cat from './Img/cat.svg';
+import Settings from './Img/settings.svg';
+import cl from './styles/style.module.css';
 
 const App = () => {
 	const [profile, setProfile] = useState(null);
 
-	console.log(profile)
+	const formatDate = (isoDate) => {
+		const date = new Date(isoDate)
+		return new Intl.DateTimeFormat('ru-RU', {
+			day: 'numeric',
+			month: 'long',
+			hour: '2-digit',
+			minute: '2-digit',
+			hour12: false,
+			timeZone: 'UTC',
+		}).format(date)
+	}
+
+	const getTimeInIgroome = (createdAt) => {
+		const createdDate = new Date(createdAt)
+		const now = new Date()
+
+		const diffMs = now - createdDate
+		const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
+		const diffMonths = Math.floor(diffDays / 30)
+		const diffYears = Math.floor(diffMonths / 12)
+
+		if (diffYears > 0) {
+			return `${diffYears} ${getPlural(diffYears, ['год', 'года', 'лет'])}`
+		} else if (diffMonths > 0) {
+			return `${diffMonths} ${getPlural(diffMonths, ['месяц', 'месяца', 'месяцев'])}`
+		} else {
+			const diffWeeks = Math.floor(diffDays / 7)
+			if (diffWeeks > 0) {
+				return `${diffWeeks} ${getPlural(diffWeeks, ['неделя', 'недели', 'недель'])}`
+			} else {
+				return `${diffDays || 1} ${getPlural(diffDays || 1, ['день', 'дня', 'дней'])}`
+			}
+		}
+	}
+
+	const getPlural = (n, forms) => {
+		const mod10 = n % 10, mod100 = n % 100
+		if (mod10 === 1 && mod100 !== 11) return forms[0]
+		if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return forms[1]
+		return forms[2]
+	}
+
 	useEffect(() => {
 		fetch("http://localhost:3000/api/profile")
-		.then((res) => res.json())
-		.then(setProfile)
-		.catch(console.error);
+			.then((res) => res.json())
+			.then(setProfile)
+			.catch(console.error)
 	}, [])
 
-
-  	if (!profile) return <div className="loading">Загрузка...</div>;
+	if (!profile) return <div className="loading">Загрузка...</div>;
 
 	return (
-		<div className="container">
-			<div className="header">
+		<div className={cl.container}>
+			<div className={cl.header}>
+				<img src={Arrow2} className={cl.arrow} alt="Назад" />
 				<img
-					src={profile.avatar_url || "/default-avatar.jpg"}
+					src={profile.avatar_url || Profile}
 					alt="avatar"
-					className="avatar"
+					className={cl.avatar}
 				/>
-				<div className="header-info">
-					<h1 className="name">{profile.name}</h1>
-					<p className="city">{profile.city}</p>
+				<div className={cl.menu}>
+					<img src={Share} className={cl.share} />
+					<div className={cl.menuWithText}>
+						<img src={Eye2} className={cl.eye2} />
+						<p className={cl.menuText}>Это я</p>
+					</div>
+					<div className={cl.menuWithText}>
+						<img src={Cat} className={cl.cat} />
+						<p className={cl.menuText}>Котум</p>
+					</div>
 				</div>
 			</div>
 
-			<div className="about">
-				<h2>Обо мне</h2>
-				<p>{profile.about || "Мастер с большим опытом работы. Люблю животных и свою работу."}</p>
+			<div className={cl.info}>
+				<p className={cl.name}>румер: {profile.name}</p>
+				<div className={cl.metaInfo}>
+					<p className={cl.city}>@{profile.nickname}</p>
+					<p className={cl.experience}>{formatDate(profile.last_login_at)}</p>
+				</div>
+				<div className={cl.metaInfo2}>
+					<div className={cl.metaBlock}>
+						<p className={cl.metaValue}>{getTimeInIgroome(profile.created_at)}</p>
+						<p className={cl.metaLabel}>в игруме</p>
+					</div>
+					<div className={cl.metaBlock}>
+						<p className={cl.metaValue}>{profile.calling_limit}</p>
+						<p className={cl.metaLabel}>встреч</p>
+					</div>
+					<div className={cl.metaBlock}>
+						<p className={cl.metaValue}>{profile.going_limit}</p>
+						<p className={cl.metaLabel}>румеров</p>
+					</div>
+				</div>
+			</div>
+
+			<div className={cl.btns}>
+				<div className={cl.cityBtn}>
+					<p className={cl.cityText}>{profile.city}</p>
+				</div>
+				<div className={cl.settingsBtn}>
+					<img src={Settings} className={cl.settingsImg}/>
+					<p className={cl.settingsText}>РЕДАКТ</p>
+				</div>
+			</div>
+
+			<div className={cl.menus}>
+				<div className={cl.zovs}>
+					<div className={cl.dotText}>
+						<div className={cl.greenDot}></div>
+						<p className={cl.text}>ЗОВЫ</p>
+					</div>
+					<div className={cl.numberArrow}>
+						<div className={cl.number}>
+							<p className={cl.num}>2</p>
+						</div>
+						<img src={Arrow} className={cl.arrow}/>
+					</div>
+				</div>
+				<hr />
+				<div className={cl.go}>
+					<div className={cl.dotText}>
+						<div className={cl.orangeDot}></div>
+						<p className={cl.text}>ИДУ</p>
+					</div>
+					<div className={cl.numberArrow}>
+						<div className={cl.number}>
+							<p className={cl.num}>3</p>
+						</div>
+						<img src={Arrow} className={cl.arrow}/>
+					</div>
+				</div>
+			</div>
+
+			<div className={cl.create_my}>
+				<div className={cl.createGame}>
+					<p className={cl.createText}>СОЗДАТЬ ИГРУМ</p>
+				</div>
+				<div className={cl.myGames}>
+					<p className={cl.createText}>МОИ ИГРУМЫ</p>
+				</div>
 			</div>
 		</div>
 	)
