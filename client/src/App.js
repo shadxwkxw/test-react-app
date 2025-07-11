@@ -6,6 +6,12 @@ import Share from './Img/share.svg';
 import Eye2 from './Img/eye2.svg';
 import Cat from './Img/cat.svg';
 import Settings from './Img/settings.svg';
+import Oclock from './Img/oclock.svg';
+import Eye from './Img/eye.svg';
+import Menu from './Img/menu.svg';
+import Yes from './Img/yes.svg';
+import Note from './Img/note.svg';
+import Close from './Img/close.svg';
 import cl from './styles/style.module.css';
 
 const App = () => {
@@ -150,6 +156,40 @@ const App = () => {
 				</div>
 				<div className={cl.myGames}>
 					<p className={cl.createText}>МОИ ИГРУМЫ</p>
+				</div>
+			</div>
+
+			<div className={cl.historyBtn}>
+				<img src={Oclock} className={cl.oclock} />
+				<p className={cl.oclockText}>ИСТОРИЯ ВСТРЕЧ</p>
+			</div>
+
+			<div className={cl.accountMenu}>
+				<div className={cl.account1}>
+					<img src={Eye} className={cl.accountImg1} />
+					<p className={cl.accountText}>Публичный аккаунт</p>
+				</div>
+				<hr />
+				<div className={cl.account2}>
+					<img src={Menu} className={cl.accountImg2} />
+					<p className={cl.accountText}>Взрослый</p>
+				</div>
+			</div>
+			
+			<div className={cl.accountMenu}>
+				<div className={cl.mySub}>
+					<img src={Yes} className={cl.mySubImg} />
+					<p className={cl.accountText}>Мои подписки</p>
+				</div>
+				<hr />
+				<div className={cl.blackList}>
+					<img src={Close} className={cl.blackListImg} />
+					<p className={cl.accountText}>Черный список</p>
+				</div>
+				<hr />
+				<div className={cl.note}>
+					<img src={Note} className={cl.noteImg} />
+					<p className={cl.accountText}>Закладки</p>
 				</div>
 			</div>
 		</div>
