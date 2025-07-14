@@ -151,20 +151,21 @@
   padding: 16px 8px;
 }
 
-.zovs, .go, .dotText, .numberArrow {
+.games, .dotText, .numberArrow {
   display: flex;
   flex-direction: row;
 }
 
-.zovs {
+.games:first-child {
   margin-bottom: 10px;
 }
 
-.go {
+.games:last-child {
   margin-top: 10px;
+
 }
 
-.zovs, .go {
+.games {
   justify-content: space-between;
   margin-left: 10px;
   margin-right: 10px;
@@ -271,7 +272,7 @@ hr {
   margin-left: 10px;
 }
 
-.accountMenu {
+.accountSettings {
   margin-top: 20px;
   background-color: #FFFFFF;
   color: #434343;
@@ -337,4 +338,65 @@ hr {
 .noteImg {
   margin-right: 13px;
   margin-left: 17px;
+}
+
+.about {
+  background-color: #FFFFFF;
+  color: #434343;
+  font-size: 17px;
+  padding: 16px 8px;
+  border-radius: 25px;
+  align-items: center;
+  margin-top: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  line-height: 22px;
+}
+
+.telegramInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.aboutText, .telegramInfo{
+  padding: 0 8px;
+}
+
+.aboutText {
+  margin-bottom: 10px;
+}
+
+.telegramTag {
+  font-weight: 600;
+}
+
+.documents {
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  color: #434343;
+  border-radius: 25px;
+  padding: 16px 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.set {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 15px;
+}
+
+.set:first-child {
+  margin-top: 0;
+}
+
+.set:last-child {
+  margin-bottom: 0;
+}
+
+.dotImg {
+  margin-right: 12px;
 }
